@@ -1,24 +1,25 @@
 # DUP_JOINT
 
-Duplicate Joint SaaS
+Simple WebSocket chat built with Spring Boot and Kotlin.
 
-## 간단한 WebSocket 채팅
+## Getting started
 
-로컬에서 바로 실행할 수 있는 WebSocket 기반의 예제 채팅입니다.
+### Requirements
+- Java 21+
+- Gradle 8+ (or the Gradle wrapper if you generate it locally)
 
-### 실행 방법
-1. 의존성 설치
-   ```bash
-   npm install
-   ```
-2. 서버 실행
-   ```bash
-   npm start
-   ```
-3. 브라우저에서 `http://localhost:3000`을 열어 여러 탭이나 다른 브라우저에서 메시지를 주고받을 수 있습니다.
+### Run locally
+```bash
+gradle bootRun
+```
+Then open http://localhost:8080 in multiple tabs to chat in real time.
 
-### 구조
-- `server.js`: Express로 정적 파일을 제공하고 `ws`로 WebSocket 브로드캐스트를 관리합니다.
-- `public/index.html`: 채팅 레이아웃과 입력 폼을 제공합니다.
-- `public/app.js`: WebSocket 클라이언트를 초기화하고 메시지를 렌더링합니다.
-- `public/styles.css`: 기본 스타일 정의입니다.
+### Build
+```bash
+gradle build
+```
+
+## How it works
+- `WebSocketConfig` registers a `/chat` endpoint backed by `ChatWebSocketHandler`.
+- The handler broadcasts JSON messages from one client to all connected peers.
+- Static assets in `src/main/resources/static` provide a lightweight UI that connects with the native WebSocket API.

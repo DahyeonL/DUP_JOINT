@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DUP Joint Chat</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="chat-card">
+      <header class="header">
+        <div class="brand">
+          <div class="logo">DUP</div>
+          <div>
+            <div style="font-weight: 700">DUP Joint Live Chat</div>
+            <div style="color: #94a3b8">Spring WebSocket • Kotlin</div>
+          </div>
+        </div>
+        <div class="status">
+          <span class="status-dot"></span>
+          <span id="status">Connecting...</span>
+        </div>
+      </header>
+
+      <section class="messages" id="messages"></section>
+
+      <form id="chat-form" class="form" autocomplete="off">
+        <input
+          id="name"
+          class="input"
+          type="text"
+          placeholder="Your name"
+          aria-label="Your name"
+        />
+        <input
+          id="message"
+          class="input"
+          type="text"
+          placeholder="Type a message"
+          aria-label="Message"
+          required
+        />
+        <button class="button" type="submit">Send</button>
+      </form>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
